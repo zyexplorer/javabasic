@@ -1,4 +1,4 @@
-package com.zhuyin.dynamicProxy.jdk;
+package com.zhuyin.dynamicproxy.jdk;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -16,7 +16,8 @@ public class MyHandler implements InvocationHandler {
 	public Object getProxyInstance(){
 		return Proxy.newProxyInstance(target.getClass().getClassLoader(), target.getClass().getInterfaces(), this);
 	}
-	
+
+	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		System.out.println("权限校验功能");
 		Object result = method.invoke(target, args);

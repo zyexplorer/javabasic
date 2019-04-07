@@ -38,27 +38,31 @@ public class HttpClientDemo2 {
 		
 		//以下是get方法
 		HttpGet httpGet = new HttpGet("http://www.baidu.com");
-		String body = "";
+		String body;
 		HttpResponse response;
 		HttpEntity entity;
 		response = httpclient.execute(httpGet);
 		entity = response.getEntity();
-		body = EntityUtils.toString(entity, Consts.UTF_8);// 这个就是页面源码了
+		// 这个就是页面源码了
+		body = EntityUtils.toString(entity, Consts.UTF_8);
 		httpGet.abort();// 中断请求,接下来可以开始另一段请求
 		System.out.println(body);
 		System.out.println("=========================================================================");
 		// httpGet.releaseConnection();//释放请求.如果释放了相当于要清空session
 
 		// 以下是post方法
-		HttpPost httpPost = new HttpPost("http://www.baidu.com");// 一定要改成可以提交的地址,这里用百度代替
-		List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-		nvps.add(new BasicNameValuePair("name", "1"));// 名值对
+		// 一定要改成可以提交的地址,这里用百度代替
+		HttpPost httpPost = new HttpPost("http://www.baidu.com");
+		List<NameValuePair> nvps = new ArrayList<>();
+		// 名值对
+		nvps.add(new BasicNameValuePair("name", "1"));
 		nvps.add(new BasicNameValuePair("account", "xxxx"));
 		httpPost.setEntity(new UrlEncodedFormEntity(nvps, Consts.UTF_8));
 		response = httpclient.execute(httpPost);
 		entity = response.getEntity();
 		body = EntityUtils.toString(entity, Consts.UTF_8);
-		System.out.println("Login form get: " + response.getStatusLine());// 这个可以打印状态
+		// 这个可以打印状态
+		System.out.println("Login form get: " + response.getStatusLine());
 		httpPost.abort();
 		System.out.println(body);
 		httpPost.releaseConnection();

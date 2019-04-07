@@ -2,8 +2,8 @@ package com.zhuyin.testnull;
 
 import org.junit.Test;
 
+
 public class TestNullTest {
-    @SuppressWarnings("static-access")
     public static void main(String[] args) {
         NullTest myNullTest = null;
         System.out.println(myNullTest.getInt());
@@ -27,11 +27,17 @@ public class TestNullTest {
 
     @Test
     public void test2() {
-        // 1 0000 0000
+        // int 为4字节 每个字节8位 最高一位符号位 1为正 0为负
+        // 0000 0001 0000 0000
         System.out.println(Integer.toBinaryString(256));
-        //   1111 1111
+        // 0000 0000 1111 1111
         System.out.println(Integer.toBinaryString(255));
         System.out.println(256 & 255);
+
+        System.out.println(Integer.toBinaryString(Integer.MAX_VALUE));
+        System.out.println(Integer.MAX_VALUE);
+
+        System.out.println(Integer.toBinaryString(-128));
     }
 
 }

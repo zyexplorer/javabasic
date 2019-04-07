@@ -1,14 +1,13 @@
-package com.zhuyin.dynamicProxy.jdk;
+package com.zhuyin.dynamicproxy.jdk;
 
 public interface UserDao {
 	
-	public abstract void add();
+	void add();
 	
-	public abstract void del();
+	void del();
 	
-	public abstract void update();
+	void update();
 	
-	public abstract void find();
-	
-	
+	void find();
+
 }

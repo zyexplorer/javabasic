@@ -1,4 +1,4 @@
-package com.zhuyin.dynamicProxy.jdk;
+package com.zhuyin.dynamicproxy.jdk;
 
 import java.lang.reflect.Proxy;
 
@@ -15,7 +15,8 @@ public class ProxyTest {
 		System.out.println("----------------------");
 		
 		MyHandler myHandler=new MyHandler(userDao);
-		UserDao userDaoProxy = (UserDao) Proxy.newProxyInstance(userDao.getClass().getClassLoader(), userDao.getClass().getInterfaces(), myHandler);
+		UserDao userDaoProxy = (UserDao) Proxy.newProxyInstance(userDao.getClass().getClassLoader(),
+				userDao.getClass().getInterfaces(), myHandler);
 		userDaoProxy.add();
 		userDaoProxy.del();
 		userDaoProxy.update();
@@ -25,14 +26,15 @@ public class ProxyTest {
 		
 		StudentDao studentDao=new StudentDaoImpl();
 		studentDao.login();
-		studentDao.regist();
+		studentDao.register();
 		
 		System.out.println("----------------------");
 		
 		MyHandler myHandler2=new MyHandler(studentDao);
-		StudentDao studentDaoProxy = (StudentDao) Proxy.newProxyInstance(studentDao.getClass().getClassLoader(), studentDao.getClass().getInterfaces(), myHandler2);
+		StudentDao studentDaoProxy = (StudentDao) Proxy.newProxyInstance(studentDao.getClass().getClassLoader(),
+				studentDao.getClass().getInterfaces(), myHandler2);
 		studentDaoProxy.login();
-		studentDaoProxy.regist();
+		studentDaoProxy.register();
 		
 		System.out.println("----------------------");
 	}

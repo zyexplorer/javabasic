@@ -1,8 +1,8 @@
-package com.zhuyin.dynamicProxy.jdk;
+package com.zhuyin.dynamicproxy.jdk;
 
 public interface StudentDao {
 	
-	public abstract void login();
+	void login();
 	
-	public abstract void regist();
+	void register();
 }

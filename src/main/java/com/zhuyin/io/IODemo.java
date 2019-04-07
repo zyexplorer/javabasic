@@ -14,7 +14,7 @@ import org.junit.Test;
 
 public class IODemo {
 	
-	public static void main(String[] args) throws IOException {
+	public static void main(String[] args) {
 		
 	}
 
@@ -121,29 +121,6 @@ public class IODemo {
 			closeAll(outputStream, inputStream);
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 
 	/**

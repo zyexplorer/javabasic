@@ -4,6 +4,6 @@ import com.zhuyin.dynamicproxy.cglib.proxychain.ProxyChain;
 
 public interface ProxyInterface {
 
-	public abstract void doProxy(ProxyChain proxyChain);
+	void doProxy(ProxyChain proxyChain);
 	
 }

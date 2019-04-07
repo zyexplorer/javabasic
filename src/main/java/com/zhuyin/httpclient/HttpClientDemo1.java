@@ -26,6 +26,8 @@ import org.apache.http.util.EntityUtils;
  * @version v1.0
  */
 public class HttpClientDemo1 {
+
+	public static final int OK_STATUS = 200;
 	
 	public static void main(String[] args) throws Exception {
 		
@@ -36,8 +38,10 @@ public class HttpClientDemo1 {
 		HttpEntity reqEntigy = new UrlEncodedFormEntity(formparams,"UTF-8");
 		
 		Builder builder = RequestConfig.custom();
-		RequestConfig config = builder.setConnectTimeout(5000)	//一、连接超时：connectionTimeout-->指的是连接一个url的连接等待时间 
-								      .setSocketTimeout(5000)	//二、读取数据超时：SocketTimeout-->指的是连接上一个url，获取response的返回等待时间 
+		//1.连接超时：connectionTimeout-->指的是连接一个url的连接等待时间
+		//2.读取数据超时：SocketTimeout-->指的是连接上一个url，获取response的返回等待时间
+		RequestConfig config = builder.setConnectTimeout(5000)
+								      .setSocketTimeout(5000)
 								      .setConnectionRequestTimeout(5000) 
 								      .build();
 		HttpClient httpClient = new DefaultHttpClient();
@@ -46,7 +50,7 @@ public class HttpClientDemo1 {
 		post.setConfig(config);
 		HttpResponse httpResponse = httpClient.execute(post);
 		
-		if (httpResponse.getStatusLine().getStatusCode() == 200) {
+		if (httpResponse.getStatusLine().getStatusCode() == OK_STATUS) {
 			HttpEntity httpEntity = httpResponse.getEntity();
 			String responseStr = EntityUtils.toString(httpEntity, "UTF-8");
 			System.out.println(responseStr);

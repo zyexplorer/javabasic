@@ -3,9 +3,9 @@
 
 核心
 3.定义链	A.用来串联所有的加强功能
-			B.该类中定义集合用来装N多加强类（逻辑业务类）,定义目标对象Object类,
-			提供一个方法用来一个一个往下调集合中的加强类（判断index<arrayList.size()就往下调，直到调完才开始调用通过
-			Cglib包下的MethodProxy类中的invokeSuper(Object arg0, Object[] arg1)方法来执行真正需要处理的业务代码）
+		B.该类中定义集合用来装N多加强类（逻辑业务类）,定义目标对象Object类,
+		  提供一个方法用来一个一个往下调集合中的加强类（判断index<arrayList.size()就往下调，直到调完才开始调用通过
+		  Cglib包下的MethodProxy类中的invokeSuper(Object arg0, Object[] arg1)方法来执行真正需要处理的业务代码）
 
 
 4.定义接口	接口内定义方法，将链传入

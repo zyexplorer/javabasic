@@ -21,16 +21,26 @@ public class ProxyManager {
 	
 	public Object newProxyInstance(){
 		
-		return Enhancer.create(targetClass, new MethodInterceptor() {
-
-			@Override
-			public Object intercept(Object object, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
-				ProxyChain proxyChain=new ProxyChain(functions,object,args,methodProxy);
-				proxyChain.doProxy();
-				return null;
-			}
+		return Enhancer.create(targetClass, (MethodInterceptor) (object, method, args, methodProxy) -> {
+			ProxyChain proxyChain=new ProxyChain(functions,object,args,methodProxy);
+			proxyChain.doProxy();
+			return null;
 		});
 	}
+
+
+//	public Object newProxyInstance(){
+//
+//		return Enhancer.create(targetClass, new MethodInterceptor() {
+//
+//			@Override
+//			public Object intercept(Object object, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
+//				ProxyChain proxyChain=new ProxyChain(functions,object,args,methodProxy);
+//				proxyChain.doProxy();
+//				return null;
+//			}
+//		});
+//	}
 	
 	
 	

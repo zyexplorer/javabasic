@@ -1,12 +1,14 @@
-package com.zhuyin.dynamicProxy.jdk;
+package com.zhuyin.dynamicproxy.jdk;
 
 public class StudentDaoImpl implements StudentDao {
 
+	@Override
 	public void login() {
 		System.out.println("登陆功能");
 	}
 
-	public void regist() {
+	@Override
+	public void register() {
 		System.out.println("注册功能");
 	}
 

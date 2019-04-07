@@ -6,6 +6,8 @@ import java.util.Random;
 
 public class TestRandom {
 
+	public static int RGB_MAX = 255;
+
 	@Test
 	public void testRandom() {
 		Random random = new Random(100);
@@ -16,11 +18,11 @@ public class TestRandom {
 
 	public String getRandomColor(int i, int j) {
 		Random random = new Random();
-		if (i > 255) {
-			i = 255;
+		if (i > RGB_MAX) {
+			i = RGB_MAX;
 		}
-		if (j > 255) {
-			j = 255;
+		if (j > RGB_MAX) {
+			j = RGB_MAX;
 		}
 		int abs = Math.abs(i - j);
 		int r = i + random.nextInt(abs);
