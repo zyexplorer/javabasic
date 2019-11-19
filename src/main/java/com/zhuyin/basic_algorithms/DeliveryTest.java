@@ -12,7 +12,8 @@ public class DeliveryTest {
 	public static void main(String[] args) {
 		int a = 10, b = 20;
 		System.out.println("基本数据类型传递前：" + "a=" + a + ",b=" + b);
-		DeliveryTest.change(a, b);//基本数据类型为数值传递
+		//基本数据类型为数值传递
+		DeliveryTest.change(a, b);
 		System.out.println("基本数据类型传递后：" + "a=" + a + ",b=" + b);
 
 		System.out.println("===========");
@@ -23,7 +24,8 @@ public class DeliveryTest {
 			System.out.print(i + " ");
 		}
 		System.out.println();
-		DeliveryTest.change(array);//引用类型为地址值传递
+		//引用类型为地址值传递
+		DeliveryTest.change(array);
 		System.out.print("引用类型传递后：");
 		for (int i : array) {
 			System.out.print(i + " ");
@@ -31,8 +33,9 @@ public class DeliveryTest {
 		
 		System.out.println();
 		System.out.println("==========");
-		
-		String s = "引用类型吗？";	//字符串常量，非引用类型
+
+		//字符串常量，非引用类型
+		String s = "引用类型吗？";
 		System.out.println("引用类型传递前：" + s);
 		DeliveryTest.change(s);
 		System.out.println("引用类型传递后：" + s);

@@ -31,7 +31,7 @@ public class HttpClientDemo1 {
 	
 	public static void main(String[] args) throws Exception {
 		
-		List<NameValuePair>formparams = new ArrayList<NameValuePair>();
+		List<NameValuePair>formparams = new ArrayList<>();
 		formparams.add(new BasicNameValuePair("account", "821516575@qq.com"));
 		formparams.add(new BasicNameValuePair("password", "ZHUyin123"));
 		
@@ -45,7 +45,7 @@ public class HttpClientDemo1 {
 								      .setConnectionRequestTimeout(5000) 
 								      .build();
 		HttpClient httpClient = new DefaultHttpClient();
-		HttpPost post = new HttpPost("http://cnivi.com.cn/login");
+		HttpPost post = new HttpPost("http://cnivi.com.cn/doLogin");
 		post.setEntity(reqEntigy);
 		post.setConfig(config);
 		HttpResponse httpResponse = httpClient.execute(post);

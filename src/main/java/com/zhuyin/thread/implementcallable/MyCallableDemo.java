@@ -1,8 +1,13 @@
 package com.zhuyin.thread.implementcallable;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author ZY
@@ -14,7 +19,9 @@ import java.util.concurrent.Future;
 public class MyCallableDemo {
 	public static void main(String[] args) throws Exception {
 		//创建线程池对象
-		ExecutorService service = Executors.newFixedThreadPool(3);
+		//ExecutorService service = Executors.newFixedThreadPool(3);
+		ExecutorService service = new ThreadPoolExecutor(3, 10, 60L, TimeUnit.SECONDS,
+				new LinkedBlockingQueue<Runnable>(), new ThreadFactoryBuilder().setNameFormat("call-thread-%d").build());
 		
 		//通过线程池执行线程(提交线程任务)
 		Future<Integer> future1 = service.submit(new MyCallable(1, 100));

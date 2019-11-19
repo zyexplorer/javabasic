@@ -78,6 +78,28 @@
 			<version>27.1-jre</version>
 		</dependency>
 		<!--Maps.newHashMap()支持-->
+
+		<!--阿里巴巴JSON-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.56</version>
+		</dependency>
+		<!--阿里巴巴JSON-->
+
+		<!--lombok-->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.6</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.8.0-beta2</version>
+		</dependency>
+		<!--lombok-->
 	</dependencies>
 	
 	<!-- 配置Tomcat7插件 -->
