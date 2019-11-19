@@ -70,6 +70,14 @@
 			<version>4.5.5</version>
 		</dependency>
 		<!-- HttpClient -->
+
+		<!--Maps.newHashMap()及Lists.newArrayList()支持-->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>27.1-jre</version>
+		</dependency>
+		<!--Maps.newHashMap()支持-->
 	</dependencies>
 	
 	<!-- 配置Tomcat7插件 -->

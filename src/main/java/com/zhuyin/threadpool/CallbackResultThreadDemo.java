@@ -6,7 +6,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import com.zhuyin.threadpool.callable.MyCallable;
 
 /**
@@ -17,8 +22,12 @@ import com.zhuyin.threadpool.callable.MyCallable;
 public class CallbackResultThreadDemo {
 	
 	public static void main(String[] args) throws InterruptedException, ExecutionException {
-		
-		ExecutorService executor = Executors.newCachedThreadPool();
+		// 不推荐使用这种方式创建线程
+		// ExecutorService executor = Executors.newCachedThreadPool();
+		// 推荐使用手动方式创建线程(指定线程工厂的创建线程命名格式，方便出问题时回溯)
+		ThreadFactory threadFactory = new ThreadFactoryBuilder().setNameFormat("demo-thread-%d").build();
+		ExecutorService executor = new ThreadPoolExecutor(0, 5,
+				60L, TimeUnit.SECONDS, new SynchronousQueue<>(), threadFactory);
 		
 		Callable<Map<String, Object>> c = new MyCallable();
 		
