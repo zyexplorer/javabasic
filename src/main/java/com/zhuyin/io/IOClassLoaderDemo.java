@@ -12,7 +12,7 @@ import java.io.OutputStream;
 
 import org.junit.Test;
 
-public class IODemo {
+public class IOClassLoaderDemo {
 	
 	public static void main(String[] args) {
 		
